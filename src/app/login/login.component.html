@@ -1,0 +1,20 @@
+<div>
+    <h1>{{aim}}</h1>
+</div>
+<div class="container ">
+    <h2 class="mt-3">Please Login</h2>
+    <form>
+        <div class="form-control">
+            <input  #acno name="acnum" type="text" [placeholder]="data" required />
+        </div>
+
+        <div class="form-control">
+            <input type="password" #password  name="password" placeholder="Password"required />
+        </div>
+
+
+        <button type="submit" (click)="login(acno,password)" class=" btn">Login</button>
+        <p class="text">Don't have an account? <a href="#">Register</a></p>
+    </form>
+
+</div>
