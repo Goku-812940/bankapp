@@ -9,3 +9,28 @@ data binding in angular
         1.2.1.event binding  (eventname)="method name()"
         1.2.2.event binding using $event (eventname)="methodname($event)"
         1.2.3.event using template rendering variable  #variable
+2.two way binding
+    1.1.ng model  [(ngmodule)]="value"   
+
+redirection in angular
+...............................
+navigateByUrl -method used to redirection
+
+Router- class
+
+angular services
+............................
+ng g s servicename
+
+angular dierectives
+..........................
+structural dierectives - to handle structured datas in view of a component
+
+ ngFor   -can directly appliy in html to access elements from array
+
+ Validation in angular
+ ...........................
+
+ 1.template driven form
+
+ 2.model driven form

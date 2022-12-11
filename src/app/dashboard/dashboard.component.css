@@ -6,16 +6,30 @@
 
 .container {
 
-    background-color:transparent;
+    background-color:rgb(5, 43, 96);
+    backdrop-filter: blur(20px);
     border: 2px white solid;
     /* color: #fff; */
-    width:24%;
-    height: 400px;
+    width:58%;
+    height: 458px;
     border-radius: 6px;
     margin-top: 64px;
    
 
 }
+.con{
+    background-color:rgb(5, 43, 96);
+    border: 2px white solid;
+    border-radius: 6px;
+    color: antiquewhite;
+
+}
+.con:hover{
+    color:rgb(5, 43, 96);
+    background-color: antiquewhite;
+
+}
+
 
  h2 {
   
@@ -62,7 +76,7 @@
     color: #fff;
     border: none;
     border-bottom: 2px solid rgb(255, 255, 255);
-    width: 105%;
+    width: 102%;
     padding: 7px 0;
     font-size: 18px;
     margin: 20px -7px 40px;
@@ -72,4 +86,3 @@
     color: azure;
 }
   
-
