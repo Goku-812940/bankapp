@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 
@@ -9,19 +10,25 @@ import { DatabaseService } from '../services/database.service';
 })
 export class RegisterComponent {
 
-  user=''
-  acnum=''
-  psw=''
+  // user=''
+  // acnum=''
+  // psw=''
 
-  constructor(private ds:DatabaseService,private router:Router){
+  constructor(private ds:DatabaseService,private router:Router,private fb:FormBuilder){
     
   }
-  register(){
-    var user=this.user
-    var acnum=this.acnum
-    var psw=this.psw
 
-    const result =this.ds.register(acnum,user,psw)
+  registerForm=this.fb.group({uname:['',[Validators.required,Validators.pattern('[a-zA-Z]+')]],
+  acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+  psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]]})
+  register(){
+    var user=this.registerForm.value.uname
+    var acnum=this.registerForm.value.acno
+    var psw=this.registerForm.value.psw
+
+    if(this.registerForm.valid){
+
+     const result =this.ds.register(acnum,user,psw)
 
     if(result){
       alert('registration sucessfull')
@@ -32,6 +39,11 @@ export class RegisterComponent {
       alert('user already exist')
       this.router.navigateByUrl('')
     }
+
+  }
+  else{
+    alert('invalid form')
+  }
 
   }
   

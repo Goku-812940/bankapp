@@ -28,9 +28,41 @@ structural dierectives - to handle structured datas in view of a component
 
  ngFor   -can directly appliy in html to access elements from array
 
+ ngif  -
+
  Validation in angular
  ...........................
 
  1.template driven form
 
  2.model driven form
+    -Reactive Form
+
+    ReactiveFormsModule -used to creste model form
+
+    FormBuilder -class of ReactiveFormsModule
+        -group,array,control
+
+Validate model form
+..............,......,.....,.....
+
+
+validator - class
+ acces error in validator ReactiveFormsModule
+
+    this.registrationfoem.get('uname')?.error
+
+                -valid - empty content
+
+                -invalid - content
+
+Local strorage in angular
+..................................
+
+-store   loccalstorage.setItem()
+
+-acces   loccalstorage.getItem()
+
+-delete  loccalstorage.removeItem()
+
+        

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 
@@ -10,25 +11,31 @@ import { DatabaseService } from '../services/database.service';
 export class LoginComponent {
   aim = "Your Perfect Banking partner"
   data = "Account number"
-  acno = ''
-  password = ''
+  // acno = ''
+  // password = ''
 
-  constructor(private router: Router, private ds: DatabaseService) {
+  constructor(private router: Router, private ds: DatabaseService,private fb:FormBuilder) {
 
   }
 
-  login() {
-    var acno = this.acno
-    var psw = this.password
+loginForm=this.fb.group({acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+psw:['',[Validators.required,Validators.pattern('[0-9]+')]]})
 
-    const result=this.ds.login(acno,psw)
-    if(result){
-      alert('login success')
-      this.router.navigateByUrl('dashboard')
+  login() {
+    var acno = this.loginForm.value.acno
+    var psw = this.loginForm.value.psw
+
+    if(this.loginForm.valid){
+      const result=this.ds.login(acno,psw)
+      if(result){
+        alert('login success')
+        this.router.navigateByUrl('dashboard')
+      }
+      else{
+        alert('incurrect account number or password')
+      }
     }
-    else{
-      alert('incurrect account number or password')
-    }
+   
 
     // login(a:any,b:any){
 
